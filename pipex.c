@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 09:31:08 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/20 09:41:44 by codespace        ###   ########.fr       */
+/*   Updated: 2024/05/20 14:06:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	main(int argc, char **argv)
 {
 	if (argc < 4)
-		perror("")
+		perror("")；
 	return (0);
 }
