@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc < 4)
+	if (argc != 5)
 		perror("")；
 	return (0);
 }

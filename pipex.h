@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/20 09:38:30 by codespace        ###   ########.fr       */
+/*   Updated: 2024/05/27 09:56:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <sys/wait.h>
+# include <sys/types.h>
 
 #endif
