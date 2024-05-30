@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/30 15:15:16 by lchee-ti         ###   ########.fr       */
+/*   Created: 2023/10/27 19:11:01 by lchee-ti          #+#    #+#             */
+/*   Updated: 2023/10/27 19:15:02 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/wait.h>
-# include <sys/types.h>
+#include "libft.h"
 
-#endif
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst != NULL)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_puthexupper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/30 15:15:16 by lchee-ti         ###   ########.fr       */
+/*   Created: 2023/11/06 14:24:32 by lchee-ti          #+#    #+#             */
+/*   Updated: 2023/11/06 15:45:24 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/wait.h>
-# include <sys/types.h>
+#include "ft_printf.h"
 
-#endif
+int	ft_puthexupper(unsigned int n)
+{
+	char	*s;
+
+	s = "0123456789ABCDEF";
+	if (n >= 16)
+		ft_puthexupper(n / 16);
+	ft_putchar(s[n % 16]);
+	return (0);
+}

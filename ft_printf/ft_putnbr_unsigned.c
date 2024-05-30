@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/30 15:15:16 by lchee-ti         ###   ########.fr       */
+/*   Created: 2023/11/06 15:08:21 by lchee-ti          #+#    #+#             */
+/*   Updated: 2023/11/06 15:29:12 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/wait.h>
-# include <sys/types.h>
+#include "ft_printf.h"
 
-#endif
+int	ft_putnbr_unsigned(unsigned int n)
+{
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + '0');
+	return (0);
+}

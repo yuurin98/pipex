@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 09:31:08 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/30 15:58:30 by lchee-ti         ###   ########.fr       */
+/*   Created: 2023/10/27 15:07:00 by lchee-ti          #+#    #+#             */
+/*   Updated: 2023/10/27 15:32:46 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
+#include <stdlib.h>
 
-void	parent(char **argv, int *p_fd, char **env)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	fd;
+	int		i;
+	int		count;
+	char	*buffer;
 
-	fd = open_file(av[4], 1);
-}
-
-int	main(int argc, char **argv, char **env)
-{
-	int		fd[2];
-	pid_t	pid;
-
-	if (argc != 5)
-		error_exit("./pipex infile cmd cmd outfile\n");
-	if (pipe(fd) == -1)
-		exit(-1);
-	pid = fork();
-	if (pid == -1)
-		exit(-1);
-	if (!pid)
-		child(argv, fd, env);
-	parent(argv, fd, env);
-	return (0);
+	if (s == NULL || f == NULL)
+		return (NULL);
+	i = 0;
+	count = ft_strlen(s);
+	buffer = (char *)malloc(sizeof(char) * count + 1);
+	if (buffer == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		buffer[i] = f(i, s[i]);
+		i++;
+	}
+	buffer[i] = '\0';
+	return (buffer);
 }

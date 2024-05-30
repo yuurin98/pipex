@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/05/30 15:15:16 by lchee-ti         ###   ########.fr       */
+/*   Created: 2023/10/27 17:46:32 by lchee-ti          #+#    #+#             */
+/*   Updated: 2023/10/27 18:13:28 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/wait.h>
-# include <sys/types.h>
+#include "libft.h"
 
-#endif
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst != NULL)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
+}
