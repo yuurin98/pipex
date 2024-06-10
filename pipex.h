@@ -6,7 +6,7 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/10 20:12:42 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:15:18 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ char	*get_path(char *cmd, char **env);
 void	exec(char *cmd, char **env);
 void	ft_free_tab(char **tab);
 void	error_exit(char *msg);
+void	parent(char **argv, int *p_fd, char **env);
+void	child(char **argv, int *p_fd, char **env);
 
 #endif
