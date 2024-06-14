@@ -6,12 +6,13 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 09:31:11 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/10 20:15:18 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:50:28 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
+# include "libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>

@@ -6,11 +6,17 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = pipex.c utils.c libft/libft.a ft_printf/libftprintf.a
 
+OBJS = $(SRCS:.c=.o)
+
 INCLUDE = pipex.h
 
 all : $(NAME)
 
-.c.o :		make all -C libft
+$(NAME) :	$(OBJS)
+			ar -rc $@ $^
+			ranlib 
+
+.c.o :
 			$(CC) $(CFLAGS) -c -I $(INCLUDE) $< -o $(<:.c=.o)
 
 clean :		
@@ -22,3 +28,5 @@ fclean :	clean
 			make fclean -C libft
 
 re : fclean all
+
+.PHONY : all clean fclean re
