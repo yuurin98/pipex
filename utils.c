@@ -6,7 +6,7 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 08:00:10 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/10 20:09:14 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:22:50 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	open_file(char *file, int in_or_out)
 void	ft_free_tab(char **tab)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (tab[i])
 	{
