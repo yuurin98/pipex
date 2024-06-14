@@ -20,7 +20,7 @@ $(NAME) :	$(OBJS)
 			$(CC) $(CFLAGS) -c -I $(INCLUDE) $< -o $(<:.c=.o)
 
 clean :		
-			rm -rf $(NAME)
+			rm -rf $(OBJ)
 			make clean -C libft
 
 fclean :	clean
