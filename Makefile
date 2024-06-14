@@ -1,20 +1,24 @@
+LIBFT = libft/libft.a
+
 NAME = pipex
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = pipex.c utils.c libft/libft.a ft_printf/libftprintf.a
+SRCS = pipex.c utils.c $(LIBFT)
 
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = pipex.h
 
-all : $(NAME)
+all : $(LIBFT) $(NAME)
+
+$(LIBFT) :	
+			make -C libft/
 
 $(NAME) :	$(OBJS)
 			ar -rc $@ $^
-			ranlib 
 
 .c.o :
 			$(CC) $(CFLAGS) -c -I $(INCLUDE) $< -o $(<:.c=.o)
