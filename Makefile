@@ -1,35 +1,31 @@
-LIBFT = libft/libft.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -Iinclude
+
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+SRCS = pipex.c utils.c
+OBJS = $(SRCS:.c=.o)
 
 NAME = pipex
 
-CC = cc
-
-CFLAGS = -Wall -Wextra -Werror
-
-SRCS = pipex.c utils.c $(LIBFT)
-
-OBJS = $(SRCS:.c=.o)
-
 INCLUDE = pipex.h
 
-all : $(LIBFT) $(NAME)
+all : $(NAME)
+
+$(NAME) :	$(OBJS) $(LIBFT)
+			$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(LIBFT) :	
-			make -C libft/
-
-$(NAME) :	$(OBJS)
-			ar -rc $@ $^
-
-.c.o :
-			$(CC) $(CFLAGS) -c -I $(INCLUDE) $< -o $(<:.c=.o)
+			make -C $(LIBFT_DIR)
 
 clean :		
-			rm -rf $(OBJ)
-			make clean -C libft
+			rm -rf $(OBJS)
+			make clean -C $(LIBFT_DIR)
 
 fclean :	clean
 			rm -rf $(NAME)
-			make fclean -C libft
+			make fclean -C $(LIBFT_DIR)
 
 re : fclean all
 

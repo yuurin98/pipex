@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuurin98 <yuurin98@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:30:20 by lchee-ti          #+#    #+#             */
-/*   Updated: 2024/06/14 16:55:15 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2024/10/01 01:13:55 by yuurin98         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
@@ -40,6 +42,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -67,6 +70,14 @@ void	ft_lstdelone(t_list *lst, void (del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int		ft_strcmp(const char *s1, const char *s2);
+
+size_t	ft_stringlength(const char *str);
+char	*ft_stringjoin(char *s1, char *s2);
+char	*ft_substring(char *s, unsigned int start, size_t len);
+char	*ft_stringchar(char *s, int c);
+char	*get_line(int fd, char *line);
+char	*until_endline(char *line);
+char	*new_line(char	*line);
+char	*get_next_line(int fd);
 
 #endif
