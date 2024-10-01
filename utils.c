@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuurin98 <yuurin98@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 08:00:10 by codespace         #+#    #+#             */
-/*   Updated: 2024/06/14 15:22:50 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2024/10/01 22:30:17 by yuurin98         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	error_exit(char *msg)
 {
 	perror(msg);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 int	open_file(char *file, int in_or_out)
@@ -24,10 +24,12 @@ int	open_file(char *file, int in_or_out)
 
 	if (in_or_out == 0)
 		fd = open(file, O_RDONLY, 0777);
-	if (in_or_out == 1)
+	else if (in_or_out == 1)
 		fd = open(file, O_WRONLY | O_TRUNC | O_CREAT, 0777);
+	else
+		return (-1);
 	if (fd == -1)
-		exit(1);
+		error_exit("Failed to open file.");
 	return (fd);
 }
 
@@ -35,6 +37,8 @@ void	ft_free_tab(char **tab)
 {
 	size_t	i;
 
+	if (!tab)
+		return ;
 	i = 0;
 	while (tab[i])
 	{
@@ -79,13 +83,14 @@ char	*get_path(char *cmd, char **env)
 	i = -1;
 	allpath = ft_split(my_getenv("PATH", env), ':');
 	s_cmd = ft_split(cmd, ' ');
-	while (allpath[++i])
+	while (allpath && allpath[++i])
 	{
 		path_part = ft_strjoin(allpath[i], "/");
 		exec = ft_strjoin(path_part, s_cmd[0]);
 		free(path_part);
 		if (access(exec, F_OK | X_OK) == 0)
 		{
+			ft_free_tab(allpath);
 			ft_free_tab(s_cmd);
 			return (exec);
 		}
