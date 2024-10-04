@@ -29,7 +29,7 @@ int	open_file(char *file, int in_or_out)
 	else
 		return (-1);
 	if (fd == -1)
-		error_exit("Failed to open file.");
+		error_exit("Failed to open file");
 	return (fd);
 }
 

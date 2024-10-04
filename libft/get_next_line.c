@@ -44,7 +44,7 @@ char	*get_line(int fd, char *line)
 }
 
 char	*until_endline(char *line)
-{	
+{
 	char	*trimmed;
 	int		i;
 
@@ -70,7 +70,8 @@ char	*new_line(char	*line)
 		free(line);
 		return (NULL);
 	}
-	new_start = ft_substring(find_newline + 1, 0, ft_stringlength(find_newline + 1));
+	new_start = ft_substring(find_newline + 1, 0, \
+	ft_stringlength(find_newline + 1));
 	free(line);
 	if (!new_start)
 		return (NULL);

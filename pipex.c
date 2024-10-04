@@ -26,14 +26,14 @@ void	exec(char *cmd, char **env)
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putendl_fd(s_cmd[0], 2);
 		ft_free_tab(s_cmd);
-		exit(127); /*Command not found*/
+		exit(127);
 	}
 }
 
 void	child(char **argv, int *p_fd, char **env)
 {
 	int	fd;
-	
+
 	fd = open_file(argv[1], 0);
 	dup2(fd, 0);
 	dup2(p_fd[1], 1);
